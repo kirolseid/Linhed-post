@@ -1,0 +1,48 @@
+<%- include('shared/header.ejs')  %> 
+<%- include('shared/navbar.ejs')  %> 
+
+
+<div class="cover">
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 ">
+            <div class="person card pb-5 px-5  text-center">
+                <img src="images/man.jpg" width="250" alt="">
+            </div>
+        </div>
+        <div class="col-md-8 pt-4">
+            <h2>Ahmed Abd Al-Muti</h2>
+            <h4 class="text-muted">Full Stack Web</h4>
+<% for( let i = 0; i < posts.length; i++ ) { %>
+    
+    <div class="post card p-4 auto">
+        <div class="media">
+            <img src="images/man.jpg" width="60" class="mr-3" alt="...">
+            <div class="media-body">
+                <h5 class="mt-0"><%=posts[i].userID.userName    %> </h5>
+                <%=Math.round((date1-posts[i].currentData )/60000)%> min
+                
+            </div>
+        </div>
+        <hr>
+        <h3><%=posts[i].title  %></h3>
+        <p class="pt-4"><%=posts[i].text  %></p>
+
+    </div>
+
+<% } %>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<%- include('shared/footer.ejs')  %> 

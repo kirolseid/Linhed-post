@@ -1,0 +1,45 @@
+<%- include('shared/header.ejs')  %> 
+<%- include('shared/navbar.ejs')  %> 
+
+
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-md-8 m-auto card p-5">
+            <div class="">
+                <h3>Account Setting</h3>
+                <hr>
+                <form action="/handelpassword" method="POST">
+                    <input name="oldPassword" placeholder="Enter Old Password" type="password" class="form-control my-2">
+                    <% if (oldPass.length!=0) { %>
+                        <div class="alert alert-primary" role="alert">
+                            old password incorrect
+                        </div>
+                     
+                    <% } %>
+                    <input name="newPassword" placeholder="New Password" type="password" class="form-control my-2">
+                    <% if (errors.find(e=>e.param=='newPassword')) { %>
+                        <div class="alert alert-danger">
+                            Minimum eight characters, at least one letter, one number and one special character</div>
+                        <% } %>
+                    <input name="repeatPassword" placeholder="Repeat Password" type="password" class="form-control my-2">
+                    <% if (errors.find(e=>e.param=='repeatPassword')) { %>
+                        <div class="alert alert-danger">
+                            you must enter tha same new password</div>
+                        <% } %>
+                    <button type="submit" class="btn btn-info my-3">Save Setting</button>
+                    <% if (done.length!=0) { %>
+
+                        <div class="alert alert-success text-center" role="alert">
+                            DONE
+                        </div>
+                     
+                    <% } %>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('shared/footer.ejs')  %> 
